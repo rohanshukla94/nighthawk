@@ -3,12 +3,11 @@ import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 @Entity()
 export class Fleet {
     @PrimaryGeneratedColumn()
-    id: number
+    id!: number
 
     @Column()
-    name: string
+    name!: string
 
     @Column()
-    title: string
-
+    title!: string
 }

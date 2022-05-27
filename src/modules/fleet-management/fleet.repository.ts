@@ -21,16 +21,19 @@ export class FleetRepository extends CrudRepository<Fleet, FleetID> {
     return entities;
   }
 
-  async store(entity: Fleet): Promise<Fleet> {
-    const newFleet = await this.fleet.save(entity);
-    return newFleet;
+  async store(entity: IFleet): Promise<Fleet> {
+    const newFleet = new Fleet();
+    newFleet["name"] = entity["name"];
+    newFleet["title"] = entity["title"]
+    const savedReq = await this.fleet.save(entity);
+    return savedReq;
   }
 
   async show(id: FleetID): Promise<Fleet | null> {
     if (id) {
-      const entity = await this.fleet.findOne({where: {
+      const entity = await this.fleet.findOneBy({
         id: id,
-    }});
+    });
       return entity;
     } else {
       return Promise.reject(Errors.ENTITY_NOT_FOUND);

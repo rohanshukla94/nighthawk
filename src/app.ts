@@ -16,19 +16,19 @@ export function createApplication(
   const io = new Server<ClientEvents, ServerEvents>(httpServer, serverOptions);
 
   const {
-    createFleet,
-    readFleet,
-    updateFleet,
-    deleteFleet,
-    listFleets,
+    storeFleet,
+    showFleet,
+    // updateFleet,
+    // deleteFleet,
+    indexFleets,
   } = createFleetHandlers(components);
 
   io.on("connection", (socket) => {
-    socket.on("fleet:create", createFleet);
-    socket.on("fleet:read", readFleet);
-    socket.on("fleet:update", updateFleet);
-    socket.on("fleet:delete", deleteFleet);
-    socket.on("fleet:list", listFleets);
+    socket.on("fleet:store", storeFleet);
+    socket.on("fleet:show", showFleet);
+    // socket.on("fleet:update", updateFleet);
+    // socket.on("fleet:delete", deleteFleet);
+    socket.on("fleet:index", indexFleets);
   });
 
   return io;

@@ -1,5 +1,5 @@
-import { Fleet, FleetID } from "./todo-management/todo.repository";
 import { ValidationErrorItem } from "joi";
+import { IFleet, FleetID } from "../modules/fleet-management/fleet.repository";
 
 interface Error {
   error: string;
@@ -13,25 +13,25 @@ interface Success<T> {
 export type Response<T> = Error | Success<T>;
 
 export interface ServerEvents {
-  "fleet:created": (fleet: Fleet) => void;
-  "fleet:updated": (fleet: Fleet) => void;
-  "fleet:deleted": (id: FleetID) => void;
+  "fleet:stored": (fleet: IFleet) => void;
+//   "fleet:updated": (fleet: Fleet) => void;
+//   "fleet:deleted": (id: FleetID) => void;
 }
 
 export interface ClientEvents {
-  "fleet:list": (callback: (res: Response<Fleet[]>) => void) => void;
+  "fleet:index": (callback: (res: Response<IFleet[]>) => void) => void;
 
-  "fleet:create": (
-    payload: Omit<Fleet, "id">,
+  "fleet:store": (
+    payload: IFleet,
     callback: (res: Response<FleetID>) => void
   ) => void;
 
-  "fleet:read": (id: FleetID, callback: (res: Response<Fleet>) => void) => void;
+  "fleet:show": (id: FleetID, callback: (res: Response<IFleet | null>) => void) => void;
 
-  "fleet:update": (
-    payload: Fleet,
-    callback: (res?: Response<void>) => void
-  ) => void;
+//   "fleet:update": (
+//     payload: IFleet,
+//     callback: (res?: Response<void>) => void
+//   ) => void;
 
-  "fleet:delete": (id: FleetID, callback: (res?: Response<void>) => void) => void;
+//   "fleet:delete": (id: FleetID, callback: (res?: Response<void>) => void) => void;
 }
