@@ -1,8 +1,11 @@
 import { createServer } from "http";
 import { createApplication } from "./app";
 import { FleetRepository } from "./modules/fleet-management/fleet.repository";
+import express from 'express';
 
-const httpServer = createServer();
+
+const app: express.Express = express();
+const httpServer = createServer(app);
 
 createApplication(
   httpServer,
@@ -11,9 +14,11 @@ createApplication(
   },
   {
     cors: {
-      origin: ["http://localhost:4200"],
+      origin: "*",
     },
   }
 );
 
-httpServer.listen(3000);
+httpServer.listen(3000, () => {
+    console.log('connected on 3000');
+});

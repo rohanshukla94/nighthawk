@@ -46,7 +46,7 @@ export default function (components: Components) {
       });
 
       // notify the other users
-      socket.broadcast.emit("fleet:created", payload);
+      socket.broadcast.emit("fleet:stored", payload);
     },
 
     showFleet: async function (

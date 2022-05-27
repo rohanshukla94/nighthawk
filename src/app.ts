@@ -23,6 +23,8 @@ export function createApplication(
     indexFleets,
   } = createFleetHandlers(components);
 
+  console.log('I am here')
+
   io.on("connection", (socket) => {
     socket.on("fleet:store", storeFleet);
     socket.on("fleet:show", showFleet);
