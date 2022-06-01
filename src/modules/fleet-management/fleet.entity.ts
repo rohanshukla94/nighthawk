@@ -9,5 +9,5 @@ export class Fleet {
     name!: string
 
     @Column()
-    slug!: string
+    slugOrUuid!: string
 }

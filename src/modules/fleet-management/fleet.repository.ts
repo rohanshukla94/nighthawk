@@ -11,7 +11,7 @@ export type FleetID = number;
 export interface IFleet {
   id: FleetID;
   name: string;
-  title: string;
+  slugOrUuidOrId: string | number;
 }
 export class FleetRepository extends CrudRepository<Fleet, FleetID> {
   private readonly fleet = AppDataSource.getRepository(Fleet)
