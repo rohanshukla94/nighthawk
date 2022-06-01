@@ -1,5 +1,4 @@
-import { Errors, mapErrorDetails, sanitizeErrorMessage } from "../../util";
-import { v4 as uuid } from "uuid";
+import { sanitizeErrorMessage } from "../../util";
 import { Components } from "../../app";
 import Joi = require("joi");
 import { IFleet, FleetID } from "./fleet.repository";
@@ -22,14 +21,14 @@ export default function (components: Components) {
       const socket: Socket<ClientEvents, ServerEvents> = this;
 
       // validate the payload
-    //   if (error) {
-    //     return callback({
-    //       error: Errors.INVALID_PAYLOAD,
-    //       errorDetails: mapErrorDetails(error.details),
-    //     });
-    //   }
+      //   if (error) {
+      //     return callback({
+      //       error: Errors.INVALID_PAYLOAD,
+      //       errorDetails: mapErrorDetails(error.details),
+      //     });
+      //   }
 
-    //   value.id = uuid();
+      //   value.id = uuid();
 
       // persist the entity
       try {
@@ -66,7 +65,7 @@ export default function (components: Components) {
       }
     },
 
-    indexFleets: async function (callback: (res: Response<IFleet[]>) => void) {
+    indexFleets: async function (callback: (res: Response<Fleet[]>) => void) {
       try {
         callback({
           data: await fleetRepository.index(),

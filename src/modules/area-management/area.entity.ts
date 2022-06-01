@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
-export class Fleet {
+export class Area {
     @PrimaryGeneratedColumn()
     id!: number
 
@@ -9,5 +9,5 @@ export class Fleet {
     name!: string
 
     @Column()
-    slug!: string
+    title!: string
 }
