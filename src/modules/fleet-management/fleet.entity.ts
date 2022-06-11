@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm"
+import { Client } from "../client-management/client.entity";
+import { Device } from "../device-management/device.entity";
 
 @Entity()
 export class Fleet {
@@ -10,4 +12,10 @@ export class Fleet {
 
     @Column()
     slugOrUuid!: string
+
+    @ManyToOne(() => Client, client => client.fleets)
+    client: Client | undefined;
+
+    @OneToMany(() => Device,  device => device.fleet)
+    devices: Device[] | undefined;
 }

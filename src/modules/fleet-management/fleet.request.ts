@@ -26,8 +26,6 @@ export interface FleetRequest {
   is_of__class: 'fleet',
   __metadata: { uri: '/resin/application(@id)?@id=1924565' }
 }
-     */
-}
 
 /**
  * {

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm"
+import { Fleet } from "../fleet-management/fleet.entity";
 
 @Entity()
 export class Client {
@@ -6,11 +7,11 @@ export class Client {
     id!: number
 
     @Column()
-
-
-    
     name!: string
-
+    
     @Column()
-    fleetID!: string
+    company!: string
+
+    @OneToMany(() => Fleet, fleet => fleet.client)
+    fleets: Fleet[];
 }
