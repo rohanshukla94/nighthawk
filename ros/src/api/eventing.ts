@@ -1,4 +1,4 @@
-import {EventEmitter2} from "eventemitter2";
+import { EventEmitter } from "events";
 
 type EventsEmitted = Record<string | symbol, (...args: any) => any>;
 
@@ -14,4 +14,4 @@ export declare interface TypedEventEmitter<Events extends EventsEmitted> {
     } 
 }
 
-export class TypedEventEmitter<Events extends EventsEmitted> extends EventEmitter2 {}
+export class TypedEventEmitter<Events extends EventsEmitted> extends EventEmitter {}
