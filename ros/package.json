@@ -1,0 +1,27 @@
+{
+  "name": "ros",
+  "version": "1.0.0",
+  "description": "This be small package that will handle roslib and socket io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Rohan Shukla",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.2.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/roslib": "^1.1.8",
+    "axios": "^0.27.2",
+    "child-process": "^1.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "roslib": "^1.3.0",
+    "socket.io": "^4.5.1"
+  }
+}

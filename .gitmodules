@@ -1,3 +1,0 @@
-[submodule "ros"]
-	path = ros
-	url = https://github.com/rohanshukla9/balena-node-red-mqtt-nginx-TIG-stack.git

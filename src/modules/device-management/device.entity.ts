@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Fleet } from "../fleet-management/fleet.entity";
 
-@Entity('Device')
+@Entity()
 export class Device {
     @PrimaryGeneratedColumn()
     id!: number

@@ -10,4 +10,8 @@ export class Area {
 
     @Column()
     title!: string
+
+    @Column()
+    ogcData!: Array<number>
+
 }

@@ -13,5 +13,5 @@ export class Client {
     company!: string
 
     @OneToMany(() => Fleet, fleet => fleet.client)
-    fleets: Fleet[];
+    fleets: Fleet[] | undefined;
 }
