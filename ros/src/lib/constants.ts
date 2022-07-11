@@ -1,4 +1,4 @@
-module.exports = {
+export const constants= {
 	EVENT_CONNECTED: "connected",
 	EVENT_DISCONNECTED: "disconnected",
 
