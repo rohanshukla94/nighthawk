@@ -1,5 +1,5 @@
 import { constants } from "./constants";
-import { EventEmitter2 } from "eventemitter2";
+const EventEmitter2 = require("eventemitter2");
 import { IConnect } from "../interfaces/connect-options";
 import ROSLIB from "roslib";
 
@@ -8,7 +8,7 @@ export class Connection {
     public rosInstance: ROSLIB.Ros | undefined;
     public connected = false;
     public connectSchedule = false;
-    constructor(public client: EventEmitter2, public options: IConnect) {
+    constructor(public client: typeof EventEmitter2, public options: IConnect) {
 
     }
 
@@ -61,7 +61,7 @@ export class Connection {
         if (this.connected) {
             return this.rosInstance;
         }
-        return new Promise(function (resolve: any) {
+        return new Promise( (resolve) => {
             this.client.once(constants.EVENT_CONNECTED, resolve);
         });
     }
