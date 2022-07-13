@@ -1,14 +1,14 @@
 import { constants } from "./constants";
-import { EventEmitter } from "events";
+import { EventEmitter2 } from "eventemitter2";
 import { IConnect } from "../interfaces/connect-options";
 import ROSLIB from "roslib";
 
-class Connection {
+export class Connection {
 
     public rosInstance: ROSLIB.Ros | undefined;
     public connected = false;
     public connectSchedule = false;
-    constructor(public client: EventEmitter, public options: IConnect) {
+    constructor(public client: EventEmitter2, public options: IConnect) {
 
     }
 
@@ -55,11 +55,13 @@ class Connection {
         }
     }
 
-    getInstance() {
+    //TODO Refactor
+
+    async getInstance(): Promise<ROSLIB.Ros> {
         if (this.connected) {
-            return Promise.resolve(this.rosInstance);
+            return this.rosInstance;
         }
-        return new Promise(function (resolve) {
+        return new Promise(function (resolve: any) {
             this.client.once(constants.EVENT_CONNECTED, resolve);
         });
     }
