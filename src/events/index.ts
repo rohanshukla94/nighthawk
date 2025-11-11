@@ -1,5 +1,5 @@
 import { ValidationErrorItem } from "joi";
-import { IFleet, FleetID } from "../modules/fleet-management/fleet.repository";
+import { IFleet, FleetID } from "../modules/fleets/fleet.repository";
 
 interface Error {
   error: string;

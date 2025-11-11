@@ -1,6 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { Fleet } from './modules//fleet-management/fleet.entity'
+import { Fleet } from './modules/fleets/fleet.entity'
 
 export const AppDataSource = new DataSource({
     type: "postgres",

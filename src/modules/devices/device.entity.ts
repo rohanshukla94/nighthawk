@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Fleet } from "../fleet-management/fleet.entity";
+import { Fleet } from "../fleets/fleet.entity";
 
 @Entity()
 export class Device {

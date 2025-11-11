@@ -1,6 +1,6 @@
 import { createServer } from "http";
 import { createApplication } from "./app";
-import { FleetRepository } from "./modules/fleet-management/fleet.repository";
+import { FleetRepository } from "./modules/fleets/fleet.repository";
 import express from 'express';
 
 

@@ -1,8 +1,8 @@
 import { Server as HttpServer } from "http";
 import { Server, ServerOptions } from "socket.io";
 import { ClientEvents, ServerEvents } from "./events";
-import { FleetRepository } from "./modules/fleet-management/fleet.repository";
-import createFleetHandlers from "./modules/fleet-management/fleet.handlers";
+import { FleetRepository } from "./modules/fleets/fleet.repository";
+import createFleetHandlers from "./modules/fleets/fleet.handlers";
 
 export interface Components {
   fleetRepository: FleetRepository;

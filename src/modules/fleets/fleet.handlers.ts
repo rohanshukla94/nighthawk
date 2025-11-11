@@ -2,7 +2,7 @@ import { sanitizeErrorMessage } from "../../util";
 import { Components } from "../../app";
 import Joi = require("joi");
 import { IFleet, FleetID } from "./fleet.repository";
-import { ClientEvents, Response, ServerEvents } from "../../events/";
+import { ClientEvents, Response, ServerEvents } from "../../events";
 import { Socket } from "socket.io";
 import { Fleet } from "./fleet.entity";
 
